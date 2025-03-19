@@ -18,8 +18,6 @@ class PagesController extends Controller
             . view('templates/footer');
 
             helper('form');
-    
-        return view('connexion');
     }    
 
 
