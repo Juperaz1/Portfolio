@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>LOISEAU Justine-Portfolio</title>
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Portfolio - Accueil</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="<?= base_url('assets/plugin/bootstrap/css/bootstrap.min.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
 </head>
+<body>
 <style>
     /* Reset de base */
 * {
@@ -121,7 +126,13 @@ footer p {
 }
 </style>
 <body>
-    <header>
+    <header><header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="<?= base_url(); ?>">Mon Portfolio</a>
+        </div>
+    </nav>
+</header>
         <nav>
             <ul>
                 <li><a href="<?php echo base_url(); ?>">Accueil</a></li>
