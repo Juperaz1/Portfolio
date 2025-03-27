@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Portfolio - Accueil</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="<?= base_url('assets/plugin/bootstrap/css/bootstrap.min.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
+    <meta charset="UTF-8">
+    <title>LOISEAU Justine-Portfolio</title>
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
 </head>
-<body>
 <style>
-    /* Reset de base */
+    
+
+/* Reset de base et variables */
+:root {
+    --primary-color: #5d5c61;
+    --secondary-color: #379683;
+    --accent-color: #7395ae;
+    --light-color: #b1a296;
+    --dark-color: #557a95;
+    --text-color: #333;
+    --light-text: #f5f5f5;
+    --shadow: 0 4px 8px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -19,120 +28,131 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    background-color: #f9f9f9;
+    color: var(--text-color);
 }
 
 /* Header */
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+    color: var(--light-text);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
 }
 
 header nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     padding: 0;
 }
 
 header nav ul li {
-    margin: 0 15px;
+    margin: 0 20px;
+    position: relative;
 }
 
 header nav ul li a {
-    color: #fff;
+    color: var(--light-text);
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: var(--transition);
 }
 
 header nav ul li a:hover {
-    color: #ff6347; /* Couleur au survol */
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
-/* Contenu principal */
-main {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--light-color);
+    transition: var(--transition);
 }
 
-/* Section des projets */
-.projects, .veille, .certifications, .contact {
-    margin-bottom: 40px;
+header nav ul li a:hover::after {
+    width: 100%;
 }
 
-.projects h2, .veille h2, .certifications h2, .contact h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #333;
-}
 
-/* Cartes de projets */
-.project-card {
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
 
-.project-card:hover {
-    transform: translateY(-10px);
-}
 
-.project-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.project-card p {
-    font-size: 1rem;
-    color: #666;
-}
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: #fff;
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+    color: var(--light-text);
     text-align: center;
-    padding: 10px 0;
-    margin-top: 40px;
+    padding: 30px 0;
+    margin-top: 60px;
 }
 
-footer p {
-    margin: 0;
+.social-links {
+    margin: 20px 0;
+}
+
+.social-links a {
+    color: var(--light-text);
+    margin: 0 15px;
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    color: var(--light-color);
+}
+
+.copyright {
+    font-size: 0.9rem;
+    opacity: 0.8;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     header nav ul {
         flex-direction: column;
+        align-items: center;
     }
 
     header nav ul li {
         margin: 10px 0;
     }
 
-    .project-card {
-        padding: 15px;
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
+
+    section {
+        padding: 20px;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+    animation: fadeIn 0.6s ease-out forwards;
 }
 </style>
 <body>
-    <header><header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="<?= base_url(); ?>">Mon Portfolio</a>
-        </div>
-    </nav>
-</header>
+    <header>
         <nav>
             <ul>
                 <li><a href="<?php echo base_url(); ?>">Accueil</a></li>
